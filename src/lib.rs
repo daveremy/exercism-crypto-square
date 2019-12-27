@@ -31,9 +31,7 @@ fn normalize(input: &str) -> (usize, usize, Vec<char>) {
 /// number of columns and r is the number of rows.
 fn num_rows_cols(len: usize) -> (usize, usize) {
     let sqrt = (len as f64).sqrt();
-    let r = sqrt.trunc() as usize;
-    let c = if sqrt.fract() == 0.0 { r } else { r + 1 };
-    (r, c)
+    (sqrt.floor() as usize, sqrt.ceil() as usize)
 }
 
 /// Pad the end of the normalized so that the text will fully represent a rectangle.
